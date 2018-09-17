@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Firebase First Tut</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+</head>
+<body>
+    <!-- <h1 id="bigOne"></h1> -->
+
+    <h1 id="fullName"></h1>
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyARgOI0F-JCGNd8uJ56QUmETyj5ooeT4C4",
+        authDomain: "fir-demo-77ffb.firebaseapp.com",
+        databaseURL: "https://fir-demo-77ffb.firebaseio.com",
+        projectId: "fir-demo-77ffb",
+        storageBucket: "fir-demo-77ffb.appspot.com",
+        messagingSenderId: "452968296625"
+    };
+    firebase.initializeApp(config);
+    
+    // var bigOne=document.getElementById('bigOne');
+    // var dbRef=firebase.database().ref().child('text');
+
+    
+    
+    // dbRef.on('value',data=>{
+    //     bigOne.innerText=data.val()
+    // })
+    
+    var fullName=document.getElementById('fullName');
+    var dbRef=firebase.database().ref().child('name');
+
+    dbRef.on('value',data=>{
+        fullName.innerText=data.val();
+        console.log(data);
+    })
+
+    </script>
+</body>
+</html>
